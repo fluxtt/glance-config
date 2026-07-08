@@ -1,0 +1,110 @@
+theme:
+  background-color: 240 8 9
+  primary-color: 150 40 55
+  positive-color: 150 60 50
+  negative-color: 0 70 60
+  contrast-multiplier: 1.1
+
+branding:
+  app-name: fluxt // control
+
+pages:
+  - name: Home
+    columns:
+      - size: small
+        widgets:
+          - type: clock
+            hour-format: 24h
+            timezones:
+              - timezone: UTC
+                label: UTC
+
+          - type: weather
+            location: Exeter, United Kingdom
+            units: metric
+            hour-format: 24h
+
+      - size: full
+        widgets:
+          - type: monitor
+            title: Services
+            cache: 2m
+            sites:
+              - title: AdGuard Home
+                url: http://192.168.1.99/#
+                icon: si:adguard
+
+          - type: docker-containers
+            sock-path: tcp://192.168.1.161:2375
+            running-only: false
+
+      - size: small
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Homelab
+                color: 150 40 55
+                links:
+                  - title: Proxmox
+                    url: https://192.168.1.101:8006
+                    icon: si:proxmox
+                  - title: Portainer
+                    url: https://192.168.1.161:9443/#!/home
+                    icon: si:docker
+                  - title: My repos
+                    url: https://github.com/fluxtt?tab=repositories
+                    icon: si:github
+
+  # -----------------------------------------------------------------------
+  - name: Homelab
+    slug: homelab
+    columns:
+      - size: full
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Homelab
+                color: 150 40 55
+                links:
+                  - title: Proxmox
+                    url: https://192.168.1.101:8006
+
+          # ENABLE ONCE PROXMOX API TOKEN IS SET UP:
+          # - type: custom-api
+          #   title: Proxmox host
+          #   cache: 30s
+          #   url: https://192.168.1.101:8006/api2/json/nodes/YOUR-NODE/status
+          #   allow-insecure: true
+          #   headers:
+          #     Authorization: "PVEAPIToken=user@pve!tokenid=YOUR-TOKEN-SECRET"
+          #   template: |
+          #     <div class="flex justify-between text-center">
+          #       <div>
+          #         <div class="color-highlight size-h3">{{ printf "%.0f" (mul (.JSON.Float "cpu") 100) }}%</div>
+          #         <div class="size-h6">CPU</div>
+          #       </div>
+          #     </div>
+
+  # -----------------------------------------------------------------------
+  - name: Dev & Security
+    slug: dev-security
+    columns:
+      - size: small
+        widgets:
+          - type: hacker-news
+            limit: 15
+            collapse-after: 5
+
+      - size: full
+        widgets:
+          - type: rss
+            title: Security news
+            style: detailed-list
+            collapse-after: 6
+            feeds:
+              - url: https://www.ncsc.gov.uk/api/1/services/v1/report-rss-feed.xml
+                title: NCSC
+              - url: https://krebsonsecurity.com/feed/
+                title: Krebs on Security
+              - url: https://feeds.feedburner.com/TheHackersNews
+                title: The Hacker News
