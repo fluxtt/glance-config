@@ -26,6 +26,31 @@ pages:
 
       - size: full
         widgets:
+          - type: search
+            search-engine: duckduckgo
+            new-tab: true
+            autofocus: true
+
+          - type: dns-stats
+            service: adguard
+            url: http://192.168.1.99/
+            username: james
+            password: ${ADGUARD_PASSWORD}
+
+      - size: small
+        widgets:
+          - type: bookmarks
+            groups:
+              - title: Homelab
+                color: 150 40 55
+                links:
+                  - title: My repos
+                    url: https://github.com/fluxtt?tab=repositories
+                    icon: si:github
+                  - title: Proxmox
+                    url: https://192.168.1.101:8006
+                    icon: si:proxmox
+
           - type: monitor
             title: Services
             cache: 2m
@@ -37,37 +62,6 @@ pages:
           - type: docker-containers
             sock-path: tcp://192.168.1.161:2375
             running-only: false
-
-      - size: small
-        widgets:
-          - type: bookmarks
-            groups:
-              - title: Homelab
-                color: 150 40 55
-                links:
-                  - title: Proxmox
-                    url: https://192.168.1.101:8006
-                    icon: si:proxmox
-                  - title: Portainer
-                    url: https://192.168.1.161:9443/#!/home
-                    icon: si:docker
-                  - title: My repos
-                    url: https://github.com/fluxtt?tab=repositories
-                    icon: si:github
-
-  # -----------------------------------------------------------------------
-  - name: Homelab
-    slug: homelab
-    columns:
-      - size: full
-        widgets:
-          - type: bookmarks
-            groups:
-              - title: Homelab
-                color: 150 40 55
-                links:
-                  - title: Proxmox
-                    url: https://192.168.1.101:8006
 
           # ENABLE ONCE PROXMOX API TOKEN IS SET UP:
           # - type: custom-api
@@ -84,27 +78,3 @@ pages:
           #         <div class="size-h6">CPU</div>
           #       </div>
           #     </div>
-
-  # -----------------------------------------------------------------------
-  - name: Dev & Security
-    slug: dev-security
-    columns:
-      - size: small
-        widgets:
-          - type: hacker-news
-            limit: 15
-            collapse-after: 5
-
-      - size: full
-        widgets:
-          - type: rss
-            title: Security news
-            style: detailed-list
-            collapse-after: 6
-            feeds:
-              - url: https://www.ncsc.gov.uk/api/1/services/v1/report-rss-feed.xml
-                title: NCSC
-              - url: https://krebsonsecurity.com/feed/
-                title: Krebs on Security
-              - url: https://feeds.feedburner.com/TheHackersNews
-                title: The Hacker News
