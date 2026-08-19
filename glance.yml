@@ -24,6 +24,12 @@ pages:
             units: metric
             hour-format: 24h
 
+          - type: dns-stats
+            service: adguard
+            url: http://192.168.1.99/
+            username: james
+            password: ${ADGUARD_PASSWORD}
+
       - size: full
         widgets:
           - type: search
@@ -31,22 +37,31 @@ pages:
             new-tab: true
             autofocus: true
 
-          - type: dns-stats
-            service: adguard
-            url: http://192.168.1.99/
-            username: james
-            password: ${ADGUARD_PASSWORD}
-
       - size: small
         widgets:
           - type: bookmarks
             groups:
-              - title: Homelab
-                color: 150 40 55
+              - title: Development
+                color: 210 60 55
                 links:
                   - title: My repos
                     url: https://github.com/fluxtt?tab=repositories
                     icon: si:github
+
+              - title: Productivity
+                color: 40 70 55
+                links:
+                  - title: Todoist
+                    url: https://todoist.com
+                    icon: si:todoist
+
+                  - title: Claude
+                    url: https://claude.ai
+                    icon: si:claude
+
+              - title: Homelab
+                color: 150 40 55
+                links:
                   - title: Proxmox
                     url: https://192.168.1.101:8006
                     icon: si:proxmox
