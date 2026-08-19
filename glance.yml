@@ -37,6 +37,15 @@ pages:
             new-tab: true
             autofocus: true
 
+          - type: rss
+            title: Devon News
+            style: horizontal-cards
+            limit: 10
+            collapse-after: 6
+            feeds:
+              - url: https://feeds.bbci.co.uk/news/england/devon/rss.xml
+                title: BBC Devon
+
       - size: small
         widgets:
           - type: bookmarks
