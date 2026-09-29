@@ -46,6 +46,9 @@ pages:
               - url: https://feeds.bbci.co.uk/news/england/devon/rss.xml
                 title: BBC Devon
 
+              - url: https://www.devonlive.com/news/?service=rss
+                title: Devon Live
+
       - size: small
         widgets:
           - type: bookmarks
@@ -56,6 +59,10 @@ pages:
                   - title: My repos
                     url: https://github.com/fluxtt?tab=repositories
                     icon: si:github
+
+                  - title: regex101
+                    url: https://regex101.com
+                    icon: mdi:regex
 
               - title: Productivity
                 color: 40 70 55
@@ -74,6 +81,10 @@ pages:
                   - title: Proxmox
                     url: https://192.168.1.101:8006
                     icon: si:proxmox
+
+                  - title: UniFi Network
+                    url: https://unifi.ui.com/consoles/6f3f01b4-352b-46c5-93dd-c53ad4ac2e14/network/default/dashboard
+                    icon: si:ubiquiti
 
           - type: monitor
             title: Services
