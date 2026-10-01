@@ -94,10 +94,6 @@ pages:
                 url: http://192.168.1.99/#
                 icon: si:adguard
 
-          - type: docker-containers
-            sock-path: tcp://192.168.1.161:2375
-            running-only: false
-
           # ENABLE ONCE PROXMOX API TOKEN IS SET UP:
           # - type: custom-api
           #   title: Proxmox host
